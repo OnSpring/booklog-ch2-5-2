@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>On Spring Post List</title>
+</head>
+<body>
+	<div th:each="post : ${postList}"> <!-- ① -->
+		<h2 th:text="${post.bookTitle}">${post.bookTitle}</h2>
+		<div th:text="${post.createdAt}">${post.createdAt}</div>
+		<a th:href="@{'/post/'+${post.id}}"> <!-- ② -->
+			<button type="button">Read</button>
+		</a>
+	</div>
+	<a th:href="@{'/'}">
+		<button type="button">Main</button>
+	</a>
+	<a th:href="@{'/post/write'}">
+		<button type="button">Write</button>
+	</a>
+</body>
+</html>
